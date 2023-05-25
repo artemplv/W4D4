@@ -51,24 +51,21 @@ def largest_contiguous_subsum(list)
     right_pointer = 0
     max = -1.0 / 0.0
     current_sum = 0
-
-    while left_pointer < list.length
+    while right_pointer < list.length-1
         current_sum += list[right_pointer]
         # current_sum = list[left_pointer..right_pointer].sum
         if current_sum > max
             max = current_sum
-            right_pointer += 1
-        else
-            left_pointer = right_pointer + 1
-            right_pointer += 1
+        elsif current_sum < 0
+            left_pointer = right_pointer + 1 
             current_sum = 0
         end
+        right_pointer += 1
     end
-
     max
 end
 
-list = [2, 3, -6, 7, -6, 7]
+list = [-2, -3, -6, -7, -6, -7,-1]
 p largest_contiguous_subsum(list) # => 8 (from [7, -6, 7])
 
 

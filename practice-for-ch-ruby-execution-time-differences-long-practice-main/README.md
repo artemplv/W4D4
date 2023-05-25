@@ -58,7 +58,7 @@ Example 2:
 
 
 ```ruby
-list = [2, 3, -6, 7, -6, 7]
+list = [-2, -3, -6, -7, -6, -7]
 largest_contiguous_subsum(list) # => 8 (from [7, -6, 7])
 ```
 
