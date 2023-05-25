@@ -28,15 +28,35 @@ def second_anagram?(str1,str2)
     return true 
 end 
 
+def third_anagram?(str1, str2)
+    str1 = str1.split('').sort
+    str2 = str2.split('').sort
+
+    str1 == str2
+end
+
+
+def fourth_anagram?(str1, str2)
+    hash = Hash.new(0)
+
+    str1.each_char do |char|
+        hash[char] += 1
+    end
+    str2.each_char do |char|
+        hash[char] -= 1
+    end
+
+    hash.empty?
+end
 
 
 
 
 
 
-p second_anagram?("abc","cba")
-p second_anagram?("abcdef","cbasds")
-p second_anagram?("racecar","rraacce")
+p third_anagram?("abc","cba")
+p third_anagram?("abcdef","cbasds")
+p third_anagram?("racecar","rraacce")
 
 
 
