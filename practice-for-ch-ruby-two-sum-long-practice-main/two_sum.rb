@@ -34,7 +34,21 @@ def two_sum_2?(arr, target)
   return false
 end
 
+def two_sum_3?(arr,target)
+  hash = Hash.new
+  arr.each do |i| 
+    if hash[i] 
+      return true
+    end  
+    hash[target - i] = true  
+  end 
+ return false
+end
+
+
+
+
 arr = [0, 1, 5, 7]
-p two_sum_2?(arr, 6) # => should be true
-p two_sum_2?(arr, 10) # => should be false
+p two_sum_3?(arr, 6) # => should be true
+p two_sum_3?(arr, 10) # => should be false
 
