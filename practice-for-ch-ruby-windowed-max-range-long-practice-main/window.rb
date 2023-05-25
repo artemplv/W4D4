@@ -42,7 +42,6 @@ class MyQueue
     def empty?
         @store.empty?
     end 
-  end
 end 
 
 class MyStack
@@ -71,26 +70,47 @@ class MyStack
         @store.push(ele)
     end 
 
-  end
-
- 
+end
 
 
+class StackQueue
+    def initialize
+        @stack1 = MyStack.new
+        @stack2 = MyStack.new
+    end
+
+    def enqueue(ele)
+        @stack1.push(ele)
+    end
+
+    def dequeue
+       @stack1.size.times do |i|
+            @stack2.push(@stack1.pop)
+       end
+       
+       return_val = @stack2.pop
+
+       @stack2.size.times do |i|
+            @stack1.push(@stack2.pop)
+       end
+
+       return return_val
+    end
+
+    def size
+        @stack1.size
+    end
+
+    def empty?
+        @stack1.empty?
+    end
+end
 
 
 
 
 
-end 
-
-
-
-
-
-
-
-
-p windowed_max_range([1, 0, 2, 5, 4, 8], 2) == 4# 4, 8
-p windowed_max_range([1, 0, 2, 5, 4, 8], 3) == 5 # 0, 2, 5
-p windowed_max_range([1, 0, 2, 5, 4, 8], 4) == 6 # 2, 5, 4, 8
-p windowed_max_range([1, 3, 2, 5, 4, 8], 5) == 6 # 3, 2, 5, 4, 8
+# p windowed_max_range([1, 0, 2, 5, 4, 8], 2) == 4# 4, 8
+# p windowed_max_range([1, 0, 2, 5, 4, 8], 3) == 5 # 0, 2, 5
+# p windowed_max_range([1, 0, 2, 5, 4, 8], 4) == 6 # 2, 5, 4, 8
+# p windowed_max_range([1, 3, 2, 5, 4, 8], 5) == 6 # 3, 2, 5, 4, 8
